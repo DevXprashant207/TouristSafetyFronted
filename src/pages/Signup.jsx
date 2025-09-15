@@ -5,10 +5,9 @@ import './Signupcss.css';
 
   export default function Signup() {
     const [form, setForm] = useState({
-      firstName: "",
-      lastName: "",
-      username: "",
+      name: "",
       email: "",
+      phone : "",
       password: ""
     });
 
@@ -38,10 +37,9 @@ if (res.status === 201) {
 }
 
       setForm({
-        firstName: "",
-        lastName: "",
-        username: "",
+        name: "",
         email: "",
+        phone : "",
         password: ""
       });
     } catch (err) {
@@ -65,30 +63,14 @@ if (res.status === 201) {
           <div className="name-fields">
             <input
               type="text"
-              name="firstName"
-              placeholder="First Name"
-              value={form.firstName}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="text"
-              name="lastName"
-              placeholder="Last Name"
-              value={form.lastName}
+              name="name"
+              placeholder="Name"
+              value={form.name}
               onChange={handleChange}
               required
             />
           </div>
 
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={form.username}
-            onChange={handleChange}
-            required
-          />
 
           <input
             type="email"
@@ -98,7 +80,14 @@ if (res.status === 201) {
             onChange={handleChange}
             required
           />
-
+             <input
+            type="text"
+            name="phone"
+            placeholder="phoneNo"
+            value={form.phone}
+            onChange={handleChange}
+            required
+          />
           <input
             type="password"
             name="password"

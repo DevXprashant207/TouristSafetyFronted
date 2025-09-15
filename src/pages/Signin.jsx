@@ -71,7 +71,7 @@ export default function Signin() {
         {message && <p className="message">{message}</p>}
 
         <p className="login-link">
-          Don't have an account? <a href="/signup">Sign Up</a>
+          Don't have an account? <a href="/Signup">Sign Up</a>
         </p>
       </div>
     </div>

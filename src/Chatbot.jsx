@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import ReactMarkdown from "react-markdown";
 
 const API_URL = "https://smarttouristsafety.onrender.com/api/chat";
 const WEATHER_KEY = "35ac9319a1d4d9fef4159df6f5ae481e"; // <-- replace with your key
@@ -61,9 +60,7 @@ export default function Chatbot() {
         ).then((r) => r.json()),
       ]);
 
-      return `# Weather Report  
-📍 **${place}**  
-🌤 ${weatherData.weather[0].description}, ${weatherData.main.temp}°C (feels like ${weatherData.main.feels_like}°C)`;
+      return `📍 ${place}\n🌤 ${weatherData.weather[0].description}, ${weatherData.main.temp}°C (feels like ${weatherData.main.feels_like}°C)`;
     } catch {
       return "Couldn't fetch weather/location.";
     }
@@ -177,7 +174,7 @@ export default function Chatbot() {
         <div className="brand">
           <div className="logo">AI</div>
           <div>
-            <h1>Mini Chatbot</h1>
+            <h1>TourBot</h1>
             <p>Talk with AI (Text + Voice)</p>
           </div>
         </div>
@@ -187,10 +184,10 @@ export default function Chatbot() {
       </header>
 
       <main className="chat">
-        <div className="messages text-bold">
+        <div className="messages">
           {messages.map((m, i) => (
             <div key={i} className={`msg ${m.role}`}>
-              <ReactMarkdown>{m.text}</ReactMarkdown>
+              {m.text}
             </div>
           ))}
           <div ref={messagesEndRef} />
